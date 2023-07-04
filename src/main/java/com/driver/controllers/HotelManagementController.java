@@ -32,7 +32,7 @@ public class HotelManagementController {
         if(hotel == null || hotel.getHotelName() == null)
             return "Failure";
         else if(hotelMap.containsKey(hotel.getHotelName()))
-            return "FAILURE";
+            return "Failure";
         else{
             hotelMap.put(hotel.getHotelName(),hotel);
             return "SUCCESS";
