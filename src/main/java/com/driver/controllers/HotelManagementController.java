@@ -20,7 +20,7 @@ import java.util.*;
 public class HotelManagementController {
     Map<String,Hotel> hotelMap = new HashMap<>();
     Map<Integer,User> userMap = new HashMap<>();
-    HashMap<String,Booking> bookingHashMap = new HashMap<>();
+    HashMap<String,Booking> bookingMap = new HashMap<>();
     HashMap<Integer,Integer> countOfBookings = new HashMap<>();
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
@@ -33,10 +33,9 @@ public class HotelManagementController {
             return "Failure";
         else if(hotelMap.containsKey(hotel.getHotelName()))
             return "Failure";
-        else{
+        else
             hotelMap.put(hotel.getHotelName(),hotel);
-            return "SUCCESS";
-        }
+        return "SUCCESS";
     }
 
     @PostMapping("/add-user")
@@ -96,7 +95,7 @@ public class HotelManagementController {
         //make sure we check this part of code as well
         hotel.setAvailableRooms(hotel.getAvailableRooms() - booking.getNoOfRooms());
 
-        bookingHashMap.put(key,booking);
+        bookingMap.put(key,booking);
 
         hotelMap.put(hotelName,hotel);
 
